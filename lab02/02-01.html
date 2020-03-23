@@ -8,10 +8,30 @@
 <body>
     
 <script type="text/javascript">
-    document.writeln('&lt;script&gt; 태그 아래의 인라인 스크립트에 의한 출력입니다. <br/>');
-</script>
-<script type="text/javascript" src="02-01.js">
+    //for in 문
 
+    const arr = [
+        {name : '을지문덕', age : 50},
+        {name : '연개소문', age : 35},
+        {name : '광개토대왕', age : 28},
+        {name : '세종대왕', age : 38},
+        {name : '김유신', age : 46},
+        {name : '계백', age : 36}
+    ];
+
+    for (let idx in arr) {
+        document.writeln("{");
+        for (let prop in arr[idx]) {
+            document.writeln(prop + ' : ' + arr[idx][prop]);
+            if (prop == 'age') {
+                break;
+                document.writeln(',');
+            }
+        }
+        document.writeln('}<br/>');
+    }
+    document.writeln('<br/>');
 </script>
+
 </body>
 </html>
