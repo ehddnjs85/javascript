@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.css"/>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+
+    <title>Mobile</title>
+</head>
+<body>
+    <div data-role="page" id="slider" data-add-back-btn="true">
+        <div data-role="header" data-position="fixed">
+            <h3>슬라이더</h3>
+            <a href="#index" data-role="button" data-icon="home" data-transition='slide' data-direction='reverse' class="ui-btn-right">Home</a>
+        </div>
+        <div data-role="content">
+            <form name="myform">
+                <div data-role="fieldcontain">
+                    <label for="year">년도</label>
+                    <input type="range" id="year" value="2020" min="1900" max="2030"/>
+                </div>
+            </form>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h4>&copy;2020 T academy</h4>
+        </div>
+    </div>
+</body>
+</html>
