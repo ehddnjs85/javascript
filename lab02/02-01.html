@@ -10,27 +10,89 @@
 <script type="text/javascript">
     //for in 문
 
-    const arr = [
-        {name : '을지문덕', age : 50},
-        {name : '연개소문', age : 35},
-        {name : '광개토대왕', age : 28},
-        {name : '세종대왕', age : 38},
-        {name : '김유신', age : 46},
-        {name : '계백', age : 36}
-    ];
+const arr = [
+    {name : '을지문덕', age : 50},
+    {name : '연개소문', age : 35},
+    {name : '광개토대왕', age : 28},
+    {name : '세종대왕', age : 38},
+    {name : '김유신', age : 46},
+    {name : '계백', age : 36}
+];
 
-    for (let idx in arr) {
-        document.writeln("{");
-        for (let prop in arr[idx]) {
-            document.writeln(prop + ' : ' + arr[idx][prop]);
-            if (prop == 'age') {
-                break;
-                document.writeln(',');
-            }
+for (let idx in arr) {
+    document.writeln("{");
+    for (let prop in arr[idx]) {
+        document.writeln(prop + ' : ' + arr[idx][prop]);
+        if (prop == 'age') {
+            break;
+            document.writeln(',');
         }
-        document.writeln('}<br/>');
+    }
+    document.writeln('}<br/>');
+}
+document.writeln('<br/>');
+document.writeln('-----------------------------------');
+document.writeln('<br/>');
+
+const calculator = {
+    add : function (x, y) {
+        return x + y;
+    },
+    subtract : function (x, y) {
+        return x - y;
+    },
+    multiply : function (x, y) {
+        return x * y;
+    },
+    divide : function (x, y) {
+        return x / y;
+    },
+};
+
+function operate1(operator, operand1, operand2) {
+    return operator(operand1, operand2);
+};
+
+function operate2(operatorName, operand1, operand2) {
+    if((typeof calculator[operatorName]) == 'function') {
+        return calculator[operatorName](operand1, operand2)
+    } else {
+        throw new Error('operator20: ' + operatorName + '은(는) 정의되어있지 않은 연산자 입니다');
+    }
+}
+
+const result1 = operate1(calculator.add, operate1(calculator.subtract, 3, 8),
+    operate1(calculator.multiply, 2, 5));
+    document.writeln("result1 : " + result1 + "<br/>");
+    
+try {
+    let result2 = operate2('add', operate2("subtract", 3, 8),
+    operate2("multiply", 2, 5));
+    document.writeln("result2 : " + result2 + "<br/>");
+} catch(e) {
+    document.writeln(e + "<br/>");
+};
+
+document.writeln('<br/>');
+document.writeln('-----------------------------------');
+document.writeln('<br/>');
+
+let orderJSON = '{"name" : "홍길동", "address" : "서울특별시 관악구 낙성대동", "orderItems" : [{"item" : "멈추면, 비로소 보이는것들", "price" : 15000, "qty" : 1}, {"item" : "어떻게 원하는 것을 얻는가?", "price" : 18000, "qty" : 1}],"baroOn" : true}';
+
+let order = JSON.parse(orderJSON);
+
+document.writeln('order.name : ' + order.name + '<br/>');
+document.writeln('order.address : ' + order.address + '<br/>');
+document.writeln('<br/>');
+
+for (let i = 0; i < order.orderItems.length; i++) {
+    for (let prop in order.orderItems[i]) {
+        document.writeln(prop + " : " + order.orderItems[i][prop] + "<br/>");
     }
     document.writeln('<br/>');
+}
+document.writeln('order.baroOn : ' + order.baroOn + '<br/>');
+document.writeln('<br/>');
 </script>
 
 </body>
