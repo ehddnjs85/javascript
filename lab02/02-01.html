@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script
+    src="https://code.jquery.com/jquery-1.12.4.js"
+    integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+    crossorigin="anonymous"></script>
+    
     <title>02-01</title>
 </head>
 <body>
-    
+
+<p>123456</p>
+
+
 <script type="text/javascript">
     //for in 문
 
@@ -34,6 +43,7 @@ document.writeln('<br/>');
 document.writeln('-----------------------------------');
 document.writeln('<br/>');
 
+//계산식
 const calculator = {
     add : function (x, y) {
         return x + y;
@@ -77,6 +87,7 @@ document.writeln('<br/>');
 document.writeln('-----------------------------------');
 document.writeln('<br/>');
 
+// JSON
 let orderJSON = '{"name" : "홍길동", "address" : "서울특별시 관악구 낙성대동", "orderItems" : [{"item" : "멈추면, 비로소 보이는것들", "price" : 15000, "qty" : 1}, {"item" : "어떻게 원하는 것을 얻는가?", "price" : 18000, "qty" : 1}],"baroOn" : true}';
 
 let order = JSON.parse(orderJSON);
@@ -93,6 +104,14 @@ for (let i = 0; i < order.orderItems.length; i++) {
 }
 document.writeln('order.baroOn : ' + order.baroOn + '<br/>');
 document.writeln('<br/>');
+
+$("p").on("click", function () {
+    alert($(this).text());
+});
+
+
+
+
 </script>
 
 </body>
