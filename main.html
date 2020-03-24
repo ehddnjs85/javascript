@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script
+    src="https://code.jquery.com/jquery-1.12.4.js"
+    integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+    crossorigin="anonymous"></script>
+
+    <title>Document</title>
+
+    <style>
+        div.card {
+            background: #ece023; width: 30px;
+            height: 40px; margin: 2px; float: left;
+            line-height: 2; text-align: center; font-weight: bold;
+            display: none;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            //보이기
+            $("#show").click(function () {
+                $("div.card").first().show("fast", function showCard() {
+                    $(this).next("div.card").show("fast", showCard);
+                });
+            });
+            //감추기
+            $("#hide").click(function () {
+                $("div.card").last().hide("fast", function hideCard() {
+                    $(this).prev("div.card").hide("fast", hideCard);
+                });
+            });
+            //페이드인
+            $("#fadein").click(function () {
+                $("div.card").fadeIn(2000);
+            })
+            //페이드아웃
+            $("#fadeout").click(function () {
+                $("div.card").fadeOut(1000);
+            })
+            //슬라이딩
+            $("#slide").click(function () {
+                $("div.card").slideToggle(1000);
+            })
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <button id="show">보이기</button>
+        <button id="hide">감추기</button>
+        <button id="fadein">페이드인</button>
+        <button id="fadeout">페이드아웃</button>
+        <button id="slide">슬라이드</button>
+    </div>
+    <div class="wrap">
+        <div class="card">1</div>
+        <div class="card">2</div>
+        <div class="card">3</div>
+        <div class="card">4</div>
+        <div class="card">5</div>
+    </div>
+</body>
+</html>
